@@ -1,7 +1,6 @@
 <?php
 
-namespace App\Model;
-
+namespace App\Player\Domain;
 use Doctrine\ORM\Mapping as ORM;
 
 /**

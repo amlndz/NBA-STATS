@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Player\Infrastructure\Controllers;
 
-use App\Services\PlayerService;
+use App\Player\Application\PlayerService;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Routing\Controller;
 

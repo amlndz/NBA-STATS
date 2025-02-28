@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\PlayerController;
+use App\Player\Infrastructure\Controllers\PlayerController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/players', [PlayerController::class, 'getAllPlayers']);

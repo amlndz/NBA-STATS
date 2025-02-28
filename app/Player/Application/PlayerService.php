@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Services;
+namespace App\Player\Application;
 
-use App\Repositories\Contracts\PlayerRepository;
+use App\Player\Domain\PlayerRepository;
 
 class PlayerService
 {

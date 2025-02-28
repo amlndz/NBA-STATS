@@ -2,8 +2,8 @@
 
 namespace App\Providers;
 
-use App\Repositories\Contracts\PlayerRepository;
-use App\Repositories\DoctrinePlayerRepository;
+use App\Player\Domain\PlayerRepository;
+use App\Player\Infrastructure\Persistence\Doctrine\DoctrinePlayerRepository;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider

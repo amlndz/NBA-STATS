@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Repositories;
+namespace App\Player\Infrastructure\Persistence\Doctrine;
 
+use App\Player\Domain\Player;
+use App\Player\Domain\PlayerRepository;
 use Doctrine\ORM\EntityManager;
-use App\Model\Player;
-use App\Repositories\Contracts\PlayerRepository;
 
 class DoctrinePlayerRepository implements PlayerRepository
 {
