@@ -27,11 +27,14 @@ return [
     'managers'                   => [
         'default' => [
             'dev'           => env('APP_DEBUG', false),
-            'meta'          => env('DOCTRINE_METADATA', 'annotations'),
             'connection'    => env('DB_CONNECTION', 'mysql'),
-            'paths'         => [
-                base_path('app/Player/Domain')
+            'paths' => [
+                base_path('app/Player/Infrastructure/Persistence/Mapping')
             ],
+            'meta'          => 'xml',
+
+
+
 
             'repository'    => Doctrine\ORM\EntityRepository::class,
 

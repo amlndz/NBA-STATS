@@ -4,41 +4,42 @@ namespace App\Player\Infrastructure\Persistence\Doctrine;
 
 use App\Player\Domain\Player;
 use App\Player\Domain\PlayerRepository;
-use Doctrine\ORM\EntityManager;
+use Doctrine\ORM\EntityManagerInterface;
+use Illuminate\Support\Facades\Log;
 
-class DoctrinePlayerRepository implements PlayerRepository
+class DoctrinePlayerRepository extends DoctrineRepository implements PlayerRepository
 {
-    private EntityManager $entityManager;
-
-    public function __construct(EntityManager $entityManager)
+    public function __construct(EntityManagerInterface $entityManager)
     {
-        $this->entityManager = $entityManager;
+        Log::info('✅ DoctrinePlayerRepository creado correctamente.');
+        parent::__construct($entityManager, Player::class);
     }
 
     public function getAll(): array
     {
-        $players = $this->entityManager->getRepository(Player::class)->findAll();
-        return array_map(fn($player) => $this->mapPlayerToArray($player), $players);
+        Log::info('🟡 getAll() ejecutado en DoctrinePlayerRepository.');
+        $players = $this->findAll();
+
+        if (empty($players)) {
+            Log::warning('⚠️ No se encontraron jugadores en la base de datos.');
+        } else {
+            Log::info('✅ Se encontraron jugadores.', ['count' => count($players)]);
+        }
+
+        return $players;
     }
 
-    public function findById(int $id): ?array
+    public function findById(int $id): ?Player
     {
-        $player = $this->entityManager->getRepository(Player::class)->find($id);
-        return $player ? $this->mapPlayerToArray($player) : null;
-    }
+        Log::info("🟡 findById({$id}) ejecutado en DoctrinePlayerRepository.");
+        $player = parent::findById($id);
 
-    private function mapPlayerToArray(Player $player): array
-    {
-        return [
-            'id' => $player->getId(),
-            'first_name' => $player->getFirstName(),
-            'last_name' => $player->getLastName(),
-            'height' => $player->getHeight(),
-            'weight' => $player->getWeight(),
-            'position' => $player->getPosition(),
-            'ppg' => (float) $player->getPpg(),
-            'apg' => (float) $player->getApg(),
-            'rpg' => (float) $player->getRpg(),
-        ];
+        if (!$player) {
+            Log::warning("⚠️ No se encontró el jugador con ID: {$id}");
+        } else {
+            Log::info("✅ Jugador encontrado: {$player->getFirstName()} {$player->getLastName()}");
+        }
+
+        return $player;
     }
 }

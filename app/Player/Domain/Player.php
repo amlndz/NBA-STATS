@@ -1,49 +1,26 @@
 <?php
 
 namespace App\Player\Domain;
-use Doctrine\ORM\Mapping as ORM;
 
-/**
- * @ORM\Entity
- * @ORM\Table(name="players")
- */
 class Player
 {
-    /** @ORM\Id @ORM\GeneratedValue @ORM\Column(type="integer") */
-    private $id;
+    private int $id;
+    private string $first_name;
+    private string $last_name;
+    private int $height;
+    private int $weight;
+    private string $position;
+    private float $ppg;
+    private float $apg;
+    private float $rpg;
 
-    /** @ORM\Column(type="string") */
-    private $first_name;
-
-    /** @ORM\Column(type="string") */
-    private $last_name;
-
-    /** @ORM\Column(type="integer") */
-    private $height;
-
-    /** @ORM\Column(type="integer") */
-    private $weight;
-
-    /** @ORM\Column(type="string") */
-    private $position;
-
-    /** @ORM\Column(type="decimal", precision=4, scale=1, options={"default" : 0}) */
-    private $ppg;
-
-    /** @ORM\Column(type="decimal", precision=4, scale=1, options={"default" : 0}) */
-    private $apg;
-
-    /** @ORM\Column(type="decimal", precision=4, scale=1, options={"default" : 0}) */
-    private $rpg;
-
-    // Getters
-    public function getId() { return $this->id; }
-    public function getFirstName() { return $this->first_name; }
-    public function getLastName() { return $this->last_name; }
-    public function getHeight() { return $this->height; }
-    public function getWeight() { return $this->weight; }
-    public function getPosition() { return $this->position; }
-    public function getPpg() { return $this->ppg; }
-    public function getApg() { return $this->apg; }
-    public function getRpg() { return $this->rpg; }
+    public function getId(): int { return $this->id; }
+    public function getFirstName(): string { return $this->first_name; }
+    public function getLastName(): string { return $this->last_name; }
+    public function getHeight(): int { return $this->height; }
+    public function getWeight(): int { return $this->weight; }
+    public function getPosition(): string { return $this->position; }
+    public function getPpg(): float { return $this->ppg; }
+    public function getApg(): float { return $this->apg; }
+    public function getRpg(): float { return $this->rpg; }
 }

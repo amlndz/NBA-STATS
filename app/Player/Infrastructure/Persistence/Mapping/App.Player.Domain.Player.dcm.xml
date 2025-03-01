@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping"
+                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                  xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping
+                  https://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+
+    <entity name="App\Player\Domain\Player" table="players">
+        <id name="id" type="integer">
+            <generator/>
+        </id>
+        <field name="first_name"/>
+        <field name="last_name"/>
+        <field name="height" type="integer"/>
+        <field name="weight" type="integer"/>
+        <field name="position"/>
+        <field name="ppg" type="float"/>
+        <field name="apg" type="float"/>
+        <field name="rpg" type="float"/>
+    </entity>
+
+</doctrine-mapping>
