@@ -14,7 +14,6 @@ class ListPlayerById
 
     public function __construct(PlayerRepository $playerRepository)
     {
-        Log::info("✅ ListPlayerById instanciado correctamente.");
         $this->playerRepository = $playerRepository;
     }
 
@@ -23,15 +22,12 @@ class ListPlayerById
      */
     public function execute(int $id): ?PlayerDTO
     {
-        Log::info("🟡 Ejecutando execute($id) en ListPlayerById.");
         $player = $this->playerRepository->findById($id);
 
         if (!$player) {
-            Log::warning("⚠️ No se encontró el jugador con ID: $id");
             throw new Exception("Player not found", 404);
         }
 
-        Log::info("✅ Jugador encontrado: {$player->getFirstName()} {$player->getLastName()}");
         return PlayerMapper::toDTO($player);
     }
 }

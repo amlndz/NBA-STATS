@@ -12,20 +12,12 @@ class ListAllPlayers
 
     public function __construct(PlayerRepository $playerRepository)
     {
-        Log::info("✅ ListAllPlayers instanciado correctamente.");
         $this->playerRepository = $playerRepository;
     }
 
     public function execute(): array
     {
-        Log::info("🟡 Ejecutando execute() en ListAllPlayers.");
         $players = $this->playerRepository->getAll();
-
-        if (empty($players)) {
-            Log::warning("⚠️ No se encontraron jugadores en execute().");
-        } else {
-            Log::info("✅ Se encontraron jugadores en execute().", ['count' => count($players)]);
-        }
 
         return PlayerMapper::toDTOCollection($players);
     }

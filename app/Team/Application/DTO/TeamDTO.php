@@ -22,10 +22,8 @@ class TeamDTO
     {
         return [
             'id' => $this->id,
-            'name' => $this->name,
-            'formatted_name' => $this->getFormattedName(),
+            'name' => $this->getFormattedName(),
             'city' => $this->city,
-            'abbreviation' => $this->abbreviation,
             'conference' => $this->conference,
             'division' => $this->division
         ];
