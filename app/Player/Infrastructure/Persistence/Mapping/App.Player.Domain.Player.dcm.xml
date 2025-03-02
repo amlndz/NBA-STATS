@@ -8,8 +8,8 @@
         <id name="id" type="integer">
             <generator/>
         </id>
-        <field name="first_name"/>
-        <field name="last_name"/>
+        <field name="firstName"/>
+        <field name="lastName"/>
         <field name="height" type="integer"/>
         <field name="weight" type="integer"/>
         <field name="position"/>

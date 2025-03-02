@@ -10,7 +10,7 @@ class RouteServiceProvider extends ServiceProvider
     /**
      * Define el comportamiento de las rutas en la aplicación
      */
-    public function map()
+    public function map(): void
     {
         $this->mapApiRoutes();
         $this->mapWebRoutes();
@@ -19,7 +19,7 @@ class RouteServiceProvider extends ServiceProvider
     /**
      * 🔥 Registrar las rutas web (para el frontend)
      */
-    protected function mapWebRoutes()
+    protected function mapWebRoutes(): void
     {
         Route::middleware('web')
             ->group(base_path('routes/web.php'));
@@ -28,7 +28,7 @@ class RouteServiceProvider extends ServiceProvider
     /**
      * 🔥 Registrar las rutas de API
      */
-    protected function mapApiRoutes()
+    protected function mapApiRoutes(): void
     {
         Route::prefix('api') // ✅ Todas las rutas en `routes/api.php` usarán `/api/`
         ->middleware('api')

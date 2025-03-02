@@ -13,7 +13,7 @@ abstract class DoctrineRepository
 
     public function __construct(EntityManagerInterface $entityManager, string $entityClass)
     {
-        Log::info("✅ DoctrineRepository creado para {$entityClass}.");
+        Log::info("✅ DoctrineRepository creado para $entityClass.");
         $this->entityManager = $entityManager;
         $this->repository = $entityManager->getRepository($entityClass);
     }
@@ -26,7 +26,7 @@ abstract class DoctrineRepository
 
     public function findById(int $id): ?object
     {
-        Log::info("🟡 Ejecutando findById({$id}) en " . get_class($this));
+        Log::info("🟡 Ejecutando findById($id) en " . get_class($this));
         return $this->repository->find($id);
     }
 }

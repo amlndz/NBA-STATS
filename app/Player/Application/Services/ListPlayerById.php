@@ -18,13 +18,16 @@ class ListPlayerById
         $this->playerRepository = $playerRepository;
     }
 
+    /**
+     * @throws Exception
+     */
     public function execute(int $id): ?PlayerDTO
     {
-        Log::info("🟡 Ejecutando execute({$id}) en ListPlayerById.");
+        Log::info("🟡 Ejecutando execute($id) en ListPlayerById.");
         $player = $this->playerRepository->findById($id);
 
         if (!$player) {
-            Log::warning("⚠️ No se encontró el jugador con ID: {$id}");
+            Log::warning("⚠️ No se encontró el jugador con ID: $id");
             throw new Exception("Player not found", 404);
         }
 

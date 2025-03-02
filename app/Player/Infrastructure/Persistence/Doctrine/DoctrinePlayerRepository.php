@@ -31,11 +31,11 @@ class DoctrinePlayerRepository extends DoctrineRepository implements PlayerRepos
 
     public function findById(int $id): ?Player
     {
-        Log::info("🟡 findById({$id}) ejecutado en DoctrinePlayerRepository.");
+        Log::info("🟡 findById($id) ejecutado en DoctrinePlayerRepository.");
         $player = parent::findById($id);
 
         if (!$player) {
-            Log::warning("⚠️ No se encontró el jugador con ID: {$id}");
+            Log::warning("⚠️ No se encontró el jugador con ID: $id");
         } else {
             Log::info("✅ Jugador encontrado: {$player->getFirstName()} {$player->getLastName()}");
         }

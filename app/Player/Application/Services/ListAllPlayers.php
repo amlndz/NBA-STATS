@@ -12,7 +12,7 @@ class ListAllPlayers
 
     public function __construct(PlayerRepository $playerRepository)
     {
-        Log::info("✅ ListA∫∫llPlayers instanciado correctamente.");
+        Log::info("✅ ListAllPlayers instanciado correctamente.");
         $this->playerRepository = $playerRepository;
     }
 

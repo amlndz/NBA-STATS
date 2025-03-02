@@ -19,7 +19,7 @@ class PlayerFinderController
 
     public function show(int $id): JsonResponse
     {
-        Log::info("🟡 Buscando jugador con ID: {$id}");
+        Log::info("🟡 Buscando jugador con ID: $id");
 
         try {
             $playerDTO = $this->listPlayerById->execute($id);
