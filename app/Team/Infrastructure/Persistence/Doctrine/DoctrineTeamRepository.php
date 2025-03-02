@@ -14,12 +14,12 @@ class DoctrineTeamRepository extends DoctrineRepository implements TeamRepositor
         parent::__construct($entityManager, Team::class);
     }
 
-    public function getAll(): array
+    public function getAllTeams(): array
     {
         return $this->findAll();
     }
 
-    public function findById(int $id): ?Team
+    public function getTeamByID(int $id): ?Team
     {
         return parent::findById($id);
     }

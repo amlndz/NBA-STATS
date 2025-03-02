@@ -16,7 +16,7 @@ class ListAllTeams
 
     public function execute(): array
     {
-        $teams = $this->teamRepository->getAll();
+        $teams = $this->teamRepository->getAllTeams();
 
         return TeamMapper::toDTOCollection($teams);
     }

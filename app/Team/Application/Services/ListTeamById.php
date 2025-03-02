@@ -21,7 +21,7 @@ class ListTeamById
      */
     public function execute(int $id): ?TeamDTO
     {
-        $team = $this->teamRepository->findById($id);
+        $team = $this->teamRepository->getTeamByID($id);
 
         if (!$team) {
             throw new Exception("Player not found", 404);
