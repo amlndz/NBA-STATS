@@ -15,7 +15,7 @@ class TeamDTO
 
     public function getFormattedName(): string
     {
-        return "{$this->name} ({$this->abbreviation})";
+        return "$this->name ($this->abbreviation)";
     }
 
     public function toArray(): array

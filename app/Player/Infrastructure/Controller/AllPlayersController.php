@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Player\Infrastructure\Controllers;
+namespace App\Player\Infrastructure\Controller;
 
 use App\Player\Application\Services\ListAllPlayers;
 use Illuminate\Http\JsonResponse;

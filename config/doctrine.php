@@ -29,7 +29,8 @@ return [
             'dev'           => env('APP_DEBUG', false),
             'connection'    => env('DB_CONNECTION', 'mysql'),
             'paths' => [
-                base_path('app/Player/Infrastructure/Persistence/Mapping')
+                base_path('app/Player/Infrastructure/Persistence/Mapping'),
+                base_path('app/Team/Infrastructure/Persistence/Mapping')
             ],
             'meta'          => 'xml',
 

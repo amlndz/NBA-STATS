@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Player\Infrastructure\Persistence\Doctrine;
+namespace App\Share\Infrastructure\Doctrine;
 
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\ORM\EntityRepository;
