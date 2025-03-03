@@ -22,7 +22,7 @@ class ListPlayerById
      */
     public function execute(int $id): ?PlayerDTO
     {
-        $player = $this->playerRepository->findById($id);
+        $player = $this->playerRepository->getPlayerById($id);
 
         if (!$player) {
             throw new Exception("Player not found", 404);

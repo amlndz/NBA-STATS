@@ -4,7 +4,7 @@ namespace App\Player\Infrastructure\Persistence\Doctrine;
 
 use App\Player\Domain\Player;
 use App\Player\Domain\PlayerRepository;
-use App\Share\Infrastructure\Doctrine\DoctrineRepository;
+use App\Shared\Infrastructure\Doctrine\DoctrineRepository;
 use Doctrine\ORM\EntityManagerInterface;
 
 class DoctrinePlayerRepository extends DoctrineRepository implements PlayerRepository
@@ -14,13 +14,16 @@ class DoctrinePlayerRepository extends DoctrineRepository implements PlayerRepos
         parent::__construct($entityManager, Player::class);
     }
 
-    public function getAll(): array
+    /**
+     * @return Player[]
+     */
+    public function getAllPlayers(): array
     {
         return $this->findAll();
     }
 
-    public function findById(int $id): ?Player
+    public function getPlayerById(int $id): ?Player
     {
-        return parent::findById($id);
+        return $this->findById($id);
     }
 }

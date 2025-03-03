@@ -3,6 +3,7 @@
 namespace App\Player\Application\Services;
 
 use App\Player\Application\Mapper\PlayerMapper;
+use App\Player\Domain\Player;
 use App\Player\Domain\PlayerRepository;
 use Illuminate\Support\Facades\Log;
 
@@ -15,9 +16,12 @@ class ListAllPlayers
         $this->playerRepository = $playerRepository;
     }
 
+    /**
+     * @return Player[]
+     */
     public function execute(): array
     {
-        $players = $this->playerRepository->getAll();
+        $players = $this->playerRepository->getAllPlayers();
 
         return PlayerMapper::toDTOCollection($players);
     }
